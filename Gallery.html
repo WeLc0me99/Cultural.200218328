@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Events</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color:  #333;
+                }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .container {
+            max-width: 300px;
+            margin: 0 ;
+            padding: 0 20px;
+            display: flex; 
+    justify-content: flex-start; 
+
+}
+        
+        .gallery {
+            display:block;
+            grid-template-columns: repeat(auto-fit, 200px); 
+            justify-content:center; /* Center align items */
+            grid-gap: 0; /* No gap between items */
+            list-style:none;
+            padding: 0;
+            margin: 0;
+            
+        }
+        .gallery-item {
+            border-radius: 30px;
+            overflow:hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease;
+            cursor: pointer;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display:block;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .gallery-item video{
+            width: 150%;
+            height:auto;
+            display: block;
+            border-radius: 10px 10px 0 0;
+        }
+
+
+        .gallery-item-info {
+            padding: 10px;
+            background-color: #fff;
+        }
+        .gallery-item-info h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .gallery-item-info p {
+            margin: 5px 0;
+            font-size: 15px;
+        }
+        /* Modal styles */
+        .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 80%; 
+    max-width: 600px; 
+    max-height: 75vh; 
+    overflow: auto;
+}
+
+
+@media screen and (max-width: 768px) {
+    .modal {
+        width: 90%; 
+        max-width: 90%;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    .modal {
+        width: 95%; 
+        max-width: 95%;
+    }
+}
+
+
+
+.modal-content {
+    margin: 20px auto;
+    display: block;
+    max-width: 70%;
+    max-height: 70%;
+}
+.modal-content img {
+   
+    width: 100%;
+    height:auto;
+    display: block;
+    border-radius: 10px;
+}
+
+        .modal-content video {
+    width: 100%; 
+    height: 100%; 
+    display: block;
+    margin: 0 auto;
+}
+
+.close {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 90px;
+    cursor: pointer;
+    width: 30px; 
+    height: 30px; 
+    background-color: #333; 
+    border-radius: 50%; 
+    padding: 5px; 
+    text-align: center; 
+    line-height: 20px; 
+}
+
+.button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            margin-left: 20px;
+             background-color: #64676a;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #3e3f3f;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Past Events</h1>
+    </header>
+    <div class="container">
+        <ul class="gallery">
+            <li class="gallery-item" onclick="openModal('63.jpg', 'Family moments', 'a delightful and scenic way to explore the Bosphorus Strait')">
+                <img src="63.jpg" alt="Event 1">
+                <div class="gallery-item-info">
+                    <h3>Event 1</h3>
+                    <p>Gorgeous views</p>
+                </div>
+            </li>
+            <li class="gallery-item" onclick="openModal('56.jpg', 'Honeymoon', 'Newlyweds can enjoy a cruise ride and have beautiful memories')">
+                <img src="56.jpg" alt="Event 2">
+                <div class="gallery-item-info">
+                    <h3>Event 2</h3>
+                    <p>Couples in the cruise</p>
+                </div>
+            </li>
+            <li class="gallery-item" onclick="openModal('55.jpg', 'Bosphorus Sea', 'Enjoy stunning views of historic Istanbul from the water during this narrated boat tour down the Bosphorus')">
+                <img src="55.jpg" alt="Event 3">
+                <div class="gallery-item-info">
+                    <h3>Event 3</h3>
+                    <p>Bosphorus sunset</p>
+                </div>
+                <li class="gallery-item" onclick="openModal('photo0jpg.jpg', 'Historical Tower', 'The tower offers incredible views of the city. Waits can get incredibly long if you don’t visit this attraction first thing in the morning.')">
+                    <img src="photo0jpg.jpg" alt="Event 4">
+                    <div class="gallery-item-info">
+                        <h3>Event 4</h3>
+                        <p>Galata Tower</p>
+                    </div>
+                    <li class="gallery-item" onclick="openModal('perhaps-galata-tower.jpg', 'Luxurious view', 'one of the wonderful places for tourists where they can drink coffee and take charming photos')">
+                        <img src="perhaps-galata-tower.jpg" alt="Event 5">
+                        <div class="gallery-item-info">
+                            <h3>Event 5</h3>
+                            <p>Galata Sea</p>
+                        </div>
+                        <li class="gallery-item" onclick="openModal('hilal.jpg', 'fishing', 'People enjoying fishing near Galata Tower')">
+                            <img src="hilal.jpg" alt="Event 6">
+                            <div class="gallery-item-info">
+                                <h3>Event 6</h3>
+                                <p>Galata Activities</p>
+                            </div>
+                        
+                        <li class="gallery-item" onclick="openModal('cruise1.jpg', 'Cruise', 'Bosphorus Yacht Cruise with Stopover on the Asian Side ')">
+                            <img src="cruise1.jpg" alt="Event 7">
+                            <div class="gallery-item-info">
+                                <h3>Event 7</h3>
+                                <p>Bosphorus Yacht Cruise</p>
+                            </div>
+            </li>
+           
+            <li class="gallery-item" onclick="openModal('Video1.mp4', 'Cruise Luxury', 'Description of Event Video')">
+                <video controls>
+                    <source src="Video1.mp4" type="Video1/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="gallery-item-info">
+                    <h3>Cruise Luxury</h3>
+                    <p>Description of Event Video</p>
+                </div>
+            </li>
+            <li class="gallery-item" onclick="openModal('Video at 1.02.11 AM.mp4', 'Event Video', 'Description of Event Video')">
+                <video controls>
+                    <source src="Video at 1.02.11 AM.mp4" type="Video1/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="gallery-item-info">
+                    <h3>Galata Tower Facts</h3>
+                    <p>Description of Event Video</p>
+                </div>
+            </li>
+            <!-- if I want to add more images and videos as needed -->
+        </ul>
+    </div>
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content" id="modal-content"></div>
+    </div>
+    <br>
+    <a href="index.html" class="button">Home Page</a>
+
+    <script>
+        function openModal(src, title, description) {
+            var modal = document.getElementById("myModal");
+            var modalContent = document.getElementById("modal-content");
+            modal.style.display = "block";
+            
+            if (src.endsWith('.jpg') || src.endsWith('.jpeg') || src.endsWith('.png') || src.endsWith('.gif')) {
+                modalContent.innerHTML = '<img src="' + src + '" alt="' + title + '"><div class="gallery-item-info"><h3>' + title + '</h3><p>' + description + '</p></div>';
+            } else if (src.endsWith('.mp4')) {
+                modalContent.innerHTML = '<video controls><source src="' + src + '" type="video/mp4">Your browser does not support the video tag.</video><div class="gallery-item-info"><h3>' + title + '</h3><p>' + description + '</p></div>';
+            }
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        // Close the modal when clicking outside of it
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

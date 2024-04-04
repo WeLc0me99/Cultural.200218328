@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+
+    <style>
+        body,html {
+            
+            margin: 0;
+            padding-top: 30px;
+            height: 100%;  
+        }
+        .background {
+            /* Set background image */
+            background-image: url('noow.jpg');
+            /* Full-screen coverage */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%; 
+            height: 100vh;
+             z-index: -1;
+             background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        h2,h1,p,li {
+            color: rgb(208, 201, 201);
+            font: 1em "Amatic SC" , cursive; 
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .navbar {
+            width: 100%;
+            
+        }
+
+        /* Style for span */
+        span{
+            margin-right: 130px;
+            font: 1em "Amatic SC" , cursive; 
+            font-weight: bold;
+             display:block;
+            margin-bottom: 5px;
+         color: rgb(208, 201, 201); 
+        }
+
+        /* Style for select wrapper */
+        .select-wrapper {
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            color: #ccc;
+            
+            
+        }
+
+        /* Style for select */
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid rgb(255, 253, 253);
+            border-radius: 50px ;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: transparent;
+            width: 195px;
+            cursor: pointer;
+            overflow-y: scroll;
+            margin-right:  100px;
+            color: #727272;
+            
+        }
+
+        /* Style for arrow icon */
+        .select-arrow {
+            position: absolute;
+            right: 5px;
+            top: calc(30% - 4px);
+            pointer-events: none;
+            margin-right:  115px;
+        }
+
+        /* Style for dropdown */
+        .select-dropdown {
+            position: fixed;
+            top: 100%;
+            left: 0;
+            width: 10px;
+             border-top: none;
+            border-radius: 0 0 4px 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 100;
+            max-height: 100px;
+        }
+
+        .select-dropdown a {
+            display: block;
+            padding: 8px 10px;
+            font-size: 15px;
+            text-decoration: none;
+            color: inherit;
+            
+        }
+
+        /* Hover effect for options */
+        .select-dropdown a:hover {
+            background-color: #f2f2f2;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color:#6362635c;
+      color: rgb(255, 255, 255);
+            text-decoration: none;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .button:hover {
+            
+            background-color: #a8ada88e;
+        }
+
+        /* Style for search input */
+        .search-container {
+            margin-top: 15px;
+            text-align: center;
+            
+        }
+        .search-input::placeholder {
+             color: white; 
+        }
+        
+        .search-input {
+            background:none;
+            padding: 10px;
+            width: 170px;
+            border: 1px solid rgb(252, 248, 248);
+            color: rgb(255, 255, 255);
+            border-radius: 50px;
+            font-size: 16px;
+        }
+
+        .search-btn {
+        
+            padding: 10px 20px;
+            background-color:#6362635c;
+      color: rgb(253, 253, 253);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+        .search-btn:hover {
+            background-color: #a8ada88e;
+        }
+
+        /* Style for container */
+        .container {
+            
+      text-align: center;
+      max-width: 300px;
+      margin: 10px ;
+      padding: 15px; 
+      background-color: #fff;
+      background: rgba(10, 10, 10, 0.4);
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 40px;
+    }
+
+    .container1 {
+            max-width: 300px;
+            margin: 10px ;
+            padding: 15px; 
+            background-color: #fff;
+            background: rgba(10, 10, 10, 0.4);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 40px;
+            text-align: center;
+            
+        }
+
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+<div class="navbar"> 
+    <img src="coollogo_com.png" class="logo">
+</div>
+
+    <div class="container">
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-input" placeholder="Enter a keyword"  >
+        <button onclick="searchPage()" class="search-btn">Search</button>
+    </div>
+    
+    <br>
+    <span class="label">Select category</span>
+
+    <div class="select-wrapper">
+    
+            <select id="category">
+            <option value="item1" data-url="Events.html"></option>
+            <option value="all-events" data-url="Events.html">All Events</option>
+            <option value="cruise" data-url="EventDet.html">Cruise</option>
+            <option value="galata" data-url="Galata.html">Galata</option>
+            <option value="past-events" data-url="Gallery.html">Past Events</option>
+            <option value="contact" data-url="contact.html">Contact</option>
+            </select>
+    
+<div class="select-arrow">&#9660;</div>
+<div class="select-dropdown">
+            
+           
+</div>
+</div>
+
+<!--javascript code--> 
+<script>
+    // JavaScript to handle select dropdown functionality
+    var selectWrapper = document.querySelector('.select-wrapper');
+    var selectDropdown = document.querySelector('.select-dropdown');
+    var select = document.getElementById('category');
+    var searchInput = document.getElementById('searchInput');
+
+    selectWrapper.addEventListener('click', function() {
+    selectDropdown.style.display = selectDropdown.style.display === 'block' ? 'none' : 'block';
+});
+
+    selectDropdown.addEventListener('click', function(e) {
+    var option = e.target.closest('a');
+    if (option) {
+    window.location.href = option.getAttribute('href');
+}
+});
+
+    select.addEventListener('change', function() {
+    var selectedOption = select.options[select.selectedIndex];
+    window.location.href = selectedOption.getAttribute('data-url');
+});
+
+    document.addEventListener('click', function(e) {
+    if (!selectWrapper.contains(e.target)) {
+     selectDropdown.style.display = 'none';
+}
+});
+
+function searchPage() {
+        var keyword = document.getElementById("searchInput").value.toLowerCase();
+        var pages = {
+            "home": "home.html",
+            "about": "about.html",
+            "services": "services.html",
+            "contact": "contact.html",
+            "events": "events.html",
+            "cruise": "EventDet.html",
+            "all events": "Events.html",
+            "galata": "Galata.html",
+            "past events": "Gallery.html"
+};
+
+if (pages.hasOwnProperty(keyword)) {
+ window.location.href = pages[keyword]; // Navigate to the page
+} else {
+ alert("0 results for \"" + keyword + "\".Key words for search: events,cruise,contact,past event.");
+}
+}
+
+</script>
+<!--End of javaScript code-->
+
+<hr>
+<h1>Events In Istanbul</h1>
+<p>Istanbul is a city full of history and culture. Events are related to arts, music, movies, and concerts. Istanbul’s nightlife is not less than any other city. You can also take a boat cruise to explore the Bosporus.</p>
+<br/>
+
+<a href="Events.html" class="button">Get Started</a>
+
+<!--if i want to do the registration form here-->
+    
+    
+</div>
+<br>
+
+<!-- About Us Container -->
+<div class="container1">
+    
+    <h2>About Us</h2>
+    <p>Welcome to our website! where cultures converge. Our mission is simple: to showcase the beauty and diversity of cultural events.Join us for an immersive experience. Let's celebrate together!"</p>
+</div> 
+<!-- End of About Us Container -->
+
+<div class="container1">
+    
+<h2>Contact Us</h2>
+<p>Are you a traveler in need of help? Visit our general inquiries page and someone from customer support team will respond as soon as possible!</p>
+
+<a href="contact.html" class="button">Click here</a>
+    
+</div>
+</body>
+</html>

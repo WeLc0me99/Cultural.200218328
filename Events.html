@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9d4d4;
+            color: #333;
+        }
+
+        #okan {
+            color: rgb(0, 70, 128);
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 32px;
+            margin-left: 20px;
+            color: rgb(0, 70, 128);
+            
+        }
+
+        ol {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ol li {
+            margin-bottom: 10px;
+            color: rgb(0, 70, 128);
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 20px 0;
+        }
+
+        .event {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .event-title {
+            color: #0056b3;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .event-description {
+            font-style: italic;
+            color: #777;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #74b2f4;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        form {
+            margin-top: 20px;
+            margin-left: 20px;
+            
+        }
+
+        label {
+            font-weight: bold;
+            color: rgb(0, 70, 128);
+            
+            
+        }
+
+        input[type="text"],
+        input {
+            width: 100%; 
+            max-width: 400px; 
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 30px;
+            border: 1px solid rgb(163, 159, 159);
+             box-sizing: border-box;
+            font-size: 16px;
+        }
+        input[type="text"]:focus,
+input:focus {
+    outline-color: rgb(0, 70, 128); 
+}
+
+        
+
+        input[type="submit"] {
+            background-color: #74b2f4;
+            color: #fff;
+            border: none;
+            margin-left: 10px;
+            border-radius: 30px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        #commentsSection {
+            margin-top: 20px;
+            
+        }
+        @media screen and (max-width: 768px) {
+            /* Adjustments for screens up to 768px wide */
+            h1 {
+                font-size: 24px;
+            }
+
+            .event {
+                padding: 15px;
+            }
+
+            .event-title {
+                font-size: 20px;
+            }
+
+            .event-description {
+                font-size: 16px;
+            }
+
+            form {
+                margin-left: 10px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            /* Adjustments for screens up to 480px wide */
+            h1 {
+                font-size: 20px;
+            }
+
+            .event {
+                padding: 10px;
+            }
+
+            .event-title {
+                font-size: 18px;
+            }
+
+            .event-description {
+                font-size: 14px;
+            }
+
+            form {
+                margin-left: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="event">
+        <h1 id="okan">Upcoming Events</h1>
+        <ol>
+            <li>CRUISE BOSPHORUS</li>
+            <li>Galata Tower</li>
+        </ol>
+    </div>
+
+    <div class="event">
+        <strong class="event-title" id="okan">Dinner Cruise Bosphorus:</strong>
+        <p class="event-description" id="okan">General information about Bosphorus dinner and Turkish night show cruise - private standard table (non-alcohol).</p>
+        <a href="EventDet.html" class="button">Click for more</a>
+    </div>
+
+    <div class="event">
+        <strong class="event-title" id="okan">Galata Tower:</strong>
+        <p class="event-description" id="okan">This historic watchtower, also known as the Galata Kulesi Museum, can be found at the end of Istanbul’s Istiklal shopping street.</p>
+        <a href="Galata.html" class="button">Click for more</a>
+        <a href="Gallery.html" class="button">past events</a>
+    </div>
+
+    <hr>
+
+    <h1>Leave a Comment</h1>
+    <form id="commentForm" action="submit_comment.php" method="post">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="comment">Comment:</label><br>
+        <input id="comment" name="comment" rows="3" cols="30" required><br> <!-- Adjusted cols -->
+        <input type="submit" value="Submit">
+        
+    </form>
+<script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Get the comment form
+                var commentForm = document.getElementById('commentForm');
+    
+                // Add event listener for form submission
+                commentForm.addEventListener('submit', function(event) {
+                    // Prevent default form submission
+                    event.preventDefault();
+    
+                    // Get form data
+                    var formData = new FormData(commentForm);
+    
+                    // Send form data using Fetch API
+                    fetch('submit_comment.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            // Comment submitted successfully
+                            alert('Comment submitted successfully');
+                            // Clear the form
+                            commentForm.reset();
+                        } else {
+                            // Error handling
+                            alert('Failed to submit comment');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('An error occurred. Please try again later.');
+                    });
+                });
+            });
+        </script>
+    <div id="commentsSection">
+        <!-- Comments will be displayed here -->
+    </div>
+
+    <script src="fetch_comments.js"></script>
+</body>
+</html>

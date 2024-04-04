@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galata Details</title>
+<style>
+
+body {
+    
+        margin: 0;
+        padding: 0;
+            font-family: sans-serif;
+            background: url(white.jpg);
+           background-size: cover; 
+    
+   }
+   header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+    }
+    nav {
+        background-color: #f4f4f4;
+        padding: 10px;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    li {
+        display: inline;
+        margin-right: 15px;
+    }
+    li a {
+        color: #333;
+        text-decoration: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+    li a:hover {
+        background-color: #ddd;
+    }
+    .container {
+        margin: 20px;
+    }
+
+  
+
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-left: 10px;
+    background-color: #6d6e6e;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+  .button:hover {
+    background-color: #8d9093;
+  }
+  .container1 {
+    text-align: center;
+        max-width: 300px;
+        max-height:155px;
+      margin: 10px;
+      padding: 15px; 
+     background-color: #fff;
+      background: rgba(10, 10, 10, 0.4);
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    
+
+    .about p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.6;
+      font: 1em "Amatic SC" , cursive; 
+    }
+
+
+
+</style>
+
+
+</head>
+<body>
+   <header>
+  <h1>Galata Tower.</h1>
+</header> 
+  
+         <nav>
+                <ul>
+                    <li><a href="#" onclick="showList('list1')">Location</a></li>
+                    <li><a href="#" onclick="showList('list2')">Price per adult</a></li>
+                    <li><a href="#" onclick="showList('list3')">Date</a></li>
+                    <li><a href="#" onclick="showList('list4')">Start& End time</a></li>
+                    <li><a href="#" onclick="showList('list5')">Free Features</a></li>
+                </ul>
+            </nav>
+            <div class="container">
+                <ul id="list1" style="display: none;">
+                    <li>Şişhane</li>
+                    
+                </ul>
+                <ul id="list2" style="display: none;">
+                    <li>30$</li>
+                    
+                </ul>
+                <ul id="list3" style="display: none;">
+                    <li>2024-04-10</li>
+                    
+                </ul>
+                <ul id="list4" style="display: none;">
+                    <li>20:45 To</li>
+                    <li>23:30</li>
+                     </ul>
+                     <ul id="list5" style="display: none;">
+                        <li>Free Dinner</li>
+                        <li>Free Coffee</li>
+                         </ul>
+            </div>
+            <script>
+                function showList(listId) {
+                    var lists = document.querySelectorAll('.container ul');
+                    for (var i = 0; i < lists.length; i++) {
+                        lists[i].style.display = 'none';
+                    }
+                    document.getElementById(listId).style.display = 'block';
+                }
+            </script>
+             
+             
+             <div class="container1">
+                <div class="about">
+                    <h2>ABOUT</h2>
+                  <p>Today, this museum has exhibition spaces where you can learn about the area's history and admire the iconic architecture of this stone tower.</p>
+                </div>
+              </div>
+
+              <div class="container1">
+                <div class="about">
+                    <h2>HOW TO GET THERE?</h2>
+                  <p>Neighborhood: Beyoglu. </p>
+                    <p>Şişhane Metro M2 • 4 min walk.</p>
+                </div>
+            </div>
+             
+             
+             <a href="Events.html" class="button">Go Back</a>
+             <a href="index.html" class="button">Home Page</a>
+              
+
+             
+</body>
+</html>
